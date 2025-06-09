@@ -61,9 +61,9 @@ io.on('connection', (socket) => {
     socket.on('send_message', (data) => {
         console.log('Received message:', data);
         if (data.roomId) {
-            io.to(data.roomId).emit('receive_message', data.message);
+            io.to(data.roomId).emit('receive_message', data);
         } else {
-            io.emit('receive_message', data.message);
+            io.emit('receive_message', data);
         }
     });
 
@@ -161,7 +161,7 @@ io.on('connection', (socket) => {
             socket.to(roomId).emit('user_stopped_typing', { user, roomId });
         }
     });
-    
+
     socket.on('disconnect', () => {
         console.log('🚫 Client disconnected:', socket.id);
 

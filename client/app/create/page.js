@@ -139,7 +139,7 @@ export default function CreatePrivateOrGroupChat() {
                                     if (chatName.trim() && name) {
                                         const room = createRoom(chatName);
                                         if (room) {
-                                            sendMessage(`${name} created a new chat Room: "${room.name}"`, room.id);
+                                            sendMessage(`${name} created a new chat Room: "${room.name}"`);
                                         }
                                         e.target.reset();
                                     }
@@ -191,7 +191,7 @@ export default function CreatePrivateOrGroupChat() {
                                     if (joinChatId.trim() && name) {
                                         joinRoom(joinChatId);
                                         router.push(`/chat/${joinChatId}`);
-                                        sendMessage(`${name} is trying to join chat: "${joinChatId}"`, joinChatId);
+                                        sendMessage(`${name} is trying to join chat: "${joinChatId}"`);
                                         e.target.reset();
                                     }
                                 }} className="p-6">

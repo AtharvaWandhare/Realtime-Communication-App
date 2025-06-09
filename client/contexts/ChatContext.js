@@ -140,10 +140,10 @@ export const ChatProvider = ({ children }) => {
         }
     };
 
-    const sendMessage = (messageText, roomId = null) => {
+    const sendMessage = (messageText) => {
         if (messageText.trim() && socket && name) {
             const message = { text: messageText, sender: name };
-            socket.emit('send_message', { roomId, message });
+            socket.emit('send_message', message);
         }
     };
 
